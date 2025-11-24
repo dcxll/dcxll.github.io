@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiangxi Tea - Hot Products</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 关键：让body占满屏幕高度，避免底部空白 */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-left: 10%;
+        }
+
+        .nav-links li {
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            /* 导航链接悬停效果（可选增强） */
+            transition: color 0.3s ease;
+        }
+
+        /* 导航链接悬停变色 */
+        .nav-links a:hover {
+            color: #ccc;
+        }
+
+        .search-box {
+            margin-right: 20px;
+        }
+
+        .search-box input {
+            padding: 10px;
+            border: none;
+            border-radius: 20px 0 0 20px;
+            width: 200px;
+            transition: width 0.3s ease; /* 输入框聚焦动画 */
+        }
+
+        /* 输入框聚焦时变宽 */
+        .search-box input:focus {
+            width: 250px;
+            outline: none; /* 清除默认聚焦边框 */
+        }
+
+        .search-box button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #ccc;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* 按钮悬停动画 */
+        }
+
+        /* 搜索按钮悬停变色 */
+        .search-box button:hover {
+            background-color: #bbb;
+        }
+
+        /* 产品展示区样式 */
+        .products-section {
+            flex: 1; /* 占满导航栏下方剩余空间 */
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .products-section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1400px; /* 限制最大宽度，避免大屏下卡片过宽 */
+            margin: 0 auto; /* 水平居中 */
+        }
+
+        /* 产品卡片基础样式 */
+        .product-card {
+            width: 240px;
+            border: 1px solid #eaeaea;
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease; /* 卡片悬停过渡动画 */
+            background-color: #fff;
+        }
+
+        /* 产品卡片悬停动画（核心） */
+        .product-card:hover {
+            transform: translateY(-10px); /* 向上上浮10px */
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15); /* 阴影放大加深 */
+            border-color: transparent; /* 隐藏边框，增强悬浮感 */
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover; /* 保持图片比例，裁剪多余部分 */
+            border-bottom: 1px solid #eaeaea;
+            transition: transform 0.5s ease; /* 图片缩放动画 */
+        }
+
+        /* 悬停时图片轻微缩放 */
+        .product-card:hover img {
+            transform: scale(1.05); /* 图片放大5% */
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #222;
+            transition: color 0.3s ease; /* 标题变色动画 */
+        }
+
+        /* 悬停时标题变色 */
+        .product-card:hover .product-info h3 {
+            color: #666;
+        }
+
+        .product-info p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="products.html">Hot Products</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Company</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search Products">
+            <button><img src="img/5uIWQhqWWT.jpg" style="width:13px; height: 13px;" alt="Search"></button>
+        </div>
+    </nav>
+
+    <!-- 产品展示区 -->
+    <section class="products-section">
+        <h2>Jiangxi Hot Tea Products</h2>
+        <div class="product-grid">
+            <!-- 产品1：Yunwu Tea -->
+            <div class="product-card">
+                <img src="img/屏幕截图 2025-11-24 162730.png" alt="Yunwu Tea">
+                <div class="product-info">
+                    <h3>Yunwu Tea</h3>
+                    <p>Grown in the misty mountains of Lushan, this tea has a fresh fragrance and mellow taste, with a history dating back to the Han Dynasty.</p>
+                </div>
+            </div>
+            <!-- 产品2：Gouguao Tea -->
+            <div class="product-card">
+                <img src="img/屏幕截图 2025-11-24 162751.png" alt="Gouguao Tea">
+                <div class="product-info">
+                    <h3>Gouguao Tea</h3>
+                    <p>Produced in Jingdezhen, it is famous for its tight shape, green color, and sweet aftertaste, favored by tea lovers since the Song Dynasty.</p>
+                </div>
+            </div>
+            <!-- 产品3：FL Tea -->
+            <div class="product-card">
+                <img src="img/屏幕截图 2025-11-24 162805.png" alt="FL Tea">
+                <div class="product-info">
+                    <h3>FuLiang Tea</h3>
+                    <p>A traditional famous tea in Jiangxi, with a unique orchid fragrance and clear soup, rich in antioxidants and nutritional value.</p>
+                </div>
+            </div>
+            <!-- 产品4：WY Tea -->
+            <div class="product-card">
+                <img src="img/屏幕截图 2025-11-24 162816.png" alt="WY Tea">
+                <div class="product-info">
+                    <h3>Wuyuan Tea</h3>
+                    <p>From the beautiful Wuyuan county, this tea has a tender leaf texture and a refreshing taste, known as "the pearl of Jiangxi tea".</p>
+                </div>
+            </div>
+            <!-- 产品5：Ninghong Tea -->
+            <div class="product-card">
+                <img src="img/屏幕截图 2025-11-24 162830.png" alt="Ninghong Tea">
+                <div class="product-info">
+                    <h3>Ninghong Tea</h3>
+                    <p>One of China's famous black teas, produced in Yichun. It has a reddish-brown color, a sweet aroma, and a smooth taste.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
