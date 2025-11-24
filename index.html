@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jiangxi Tea History</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: "Microsoft YaHei", Arial, sans-serif; 
+        }
+
+        
+        nav {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-left: 10%;
+        }
+
+        .nav-links li {
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease; 
+        }
+
+        .nav-links a:hover {
+            color: #ccc;
+        }
+
+        .search-box {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 10px;
+            border: none;
+            border-radius: 20px 0 0 20px;
+            width: 200px;
+            transition: width 0.3s ease; 
+        }
+
+        .search-box input:focus {
+            width: 250px;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #ccc;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background-color: #bbb;
+        }
+
+        
+        .banner {
+            background: url('img/微信图片_20251124110540_120_5.png') no-repeat center center;
+            background-size: cover;
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #000;
+            padding: 20px;
+            position: relative;
+        }
+
+        .banner::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2); 
+            z-index: 1;
+        }
+
+        .banner h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            margin-top: -150px;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .banner p {
+            font-size: 20px;
+            max-width: 800px;
+            line-height: 1.8;
+            color: aliceblue;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            margin: 8px 0;
+        }
+
+       
+        .products {
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            flex: none; 
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #333;
+            position: relative;
+        }
+
+        .products h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #25d275; 
+            margin: 15px auto 0;
+        }
+
+      
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+       
+        .product-card {
+            width: 280px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease; 
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-color: transparent;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 1px solid #e0e0e0;
+            transition: transform 0.5s ease; 
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin: 15px 0 10px;
+            color: #333;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #666;
+            padding: 0 15px 20px;
+            line-height: 1.5;
+        }
+
+        /* 新增：左下角固定文本样式 */
+        .bottom-left-text {
+            position: fixed; /* 固定定位，不随页面滚动 */
+            bottom: 30px; /* 距离底部30px */
+            left: 30px; /* 距离左侧30px */
+            background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色背景，增强可读性 */
+            color: #fff; /* 文字白色 */
+            padding: 12px 20px; /* 内边距，让文本不贴边 */
+            border-radius: 8px; /* 圆角，更美观 */
+            font-size: 14px; /* 字体大小 */
+            line-height: 1.6; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 999; 
+            max-width: 200px;
+        }
+
+        @media (max-width: 768px) {
+            .bottom-left-text {
+                bottom: 20px;
+                left: 20px;
+                padding: 10px 15px;
+                font-size: 13px;
+                max-width: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="cpzl.html">Hot Products</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Company</a></li>
+        </ul>
+        <div class="search-box">
+            <input type="text" placeholder="Search Products">
+            <button><img src="img/5uIWQhqWWT.jpg" style="width:13px; height: 13px;" alt="Search"></button>
+        </div>
+    </nav>
+
+  
+    <div class="banner">
+        <h1>History of Jiangxi Tea</h1>
+        <p>Famous western teas have a long history, laying the foundation stone in Han and Tang Dynasties, flourishing in Song and Ming Dynasties</p>
+        <p>well-known in Qing Dynasty. Famous teas such as Lushan Yunwu Tea, Dog Gunnao Tea and Ning Black Tea have won numerous awards,</p>
+        <p>at home and abroad, and their intangible skills have been passed down from generation to generation.</p>
+    </div>
+
+    </section>
+
+    <!-- 新增：左下角固定文本 -->
+    <div class="bottom-left-text">
+       
+        咨询热线：12345678
+    </div>
+</body>
+</html>
